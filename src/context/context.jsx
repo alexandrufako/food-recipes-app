@@ -1,4 +1,4 @@
-import {createContext, useContext, useState} from "react";
+import {createContext, useState} from "react";
 
 export const Ctx = createContext();
 export const Provider = ({ children }) => {

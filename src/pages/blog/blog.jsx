@@ -3,7 +3,7 @@ const BlogPage = () => {
 
     return (
         <div>
-            user account page
+            blog page
         </div>
     )
 }
