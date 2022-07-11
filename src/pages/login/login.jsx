@@ -1,9 +1,12 @@
+import './login.css'
+import SignUp from "./signup";
+
 const LoginPage = () => {
 
 
     return (
-        <div>
-            login page
+        <div className=''>
+            <SignUp />
         </div>
     )
 }
