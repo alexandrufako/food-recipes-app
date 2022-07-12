@@ -5,14 +5,17 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
 }
 
 .Auth-form {
     width: 420px;
-    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    height: 550px;
+
     padding-top: 30px;
     padding-bottom: 20px;
-    border-radius: 8px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
     background-color: white;
 }
 
@@ -33,4 +36,15 @@ label {
     font-size: 14px;
     font-weight: 600;
     color: rgb(34, 34, 34);
+}
+
+.left-column {
+    width: 360px;
+    background-color: white;
+    height: 550px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    background: url("../../img/her-vietnamese-food.jpg") no-repeat center;
+    background-size: cover;
+
 }

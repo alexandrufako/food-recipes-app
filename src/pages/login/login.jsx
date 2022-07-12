@@ -50,21 +50,81 @@ const LoginPage = (props) => {
         }
     }
 
-
+    // <img src={require('../../img/her-vietnamese-food.jpg')} height='550px'/>
     if (authMode === "signin") {
         return (
-            <div className="Auth-form-container d-flex flex-row">
-                <div className='left-column'>POZA</div>
-                <form className="Auth-form" onSubmit={handleSignIn}>
+            <div className="Auth-form-container d-flex flex-column">
+                <div className='d-flex flex-row' style={{boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px', borderRadius: '10px'}}>
+                    <div className='left-column'></div>
+                    <form className="Auth-form" onSubmit={handleSignIn}>
+                        <div className="Auth-form-content">
+                            <h3 className="Auth-form-title">Sign In</h3>
+                            <div className="text-center">
+                                {currentUser && currentUser.email}
+                                {error && <Alert variant='danger'>{error}</Alert>}
+                                Not registered yet?{" "}
+                                <span className="link-primary" onClick={changeAuthMode}>
+                Sign Up
+              </span>
+                            </div>
+                            <div className="form-group mt-3">
+                                <label>Email address</label>
+                                <input
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    type="email"
+                                    className="form-control mt-1"
+                                    placeholder="Enter email"
+                                />
+                            </div>
+                            <div className="form-group mt-3">
+                                <label>Password</label>
+                                <input
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    type="password"
+                                    className="form-control mt-1"
+                                    placeholder="Enter password"
+                                />
+                            </div>
+                            <div className="d-grid gap-2 mt-3">
+                                <button disabled={loading} type="submit" className="btn btn-primary">
+                                    Submit
+                                </button>
+                            </div>
+                            <p className="text-center mt-2">
+                                Forgot <a href="#">password?</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <div style={{padding: '10px'}}><b>At the moment, we're not accepting new users</b></div>
+            </div>
+        )
+    }
+
+    return (
+        <div className="Auth-form-container d-flex flex-column">
+            <div className='d-flex flex-row' style={{boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px', borderRadius: '10px'}}>
+                <div className='left-column'></div>
+                <form className="Auth-form" onSubmit={handleSignUp}>
                     <div className="Auth-form-content">
-                        <h3 className="Auth-form-title">Sign In</h3>
+                        <h3 className="Auth-form-title">Sign Up</h3>
                         <div className="text-center">
                             {currentUser && currentUser.email}
                             {error && <Alert variant='danger'>{error}</Alert>}
-                            Not registered yet?{" "}
+                            Already registered?{" "}
                             <span className="link-primary" onClick={changeAuthMode}>
-                Sign Up
-              </span>
+
+              Sign In
+            </span>
+                        </div>
+                        <div className="form-group mt-3">
+                            <label>Full Name</label>
+                            <input
+                                ref={fullNameRef}
+                                type="text"
+                                className="form-control mt-1"
+                                placeholder="e.g Jane Doe"
+                            />
                         </div>
                         <div className="form-group mt-3">
                             <label>Email address</label>
@@ -72,7 +132,7 @@ const LoginPage = (props) => {
                                 onChange={(e) => setEmail(e.target.value)}
                                 type="email"
                                 className="form-control mt-1"
-                                placeholder="Enter email"
+                                placeholder="Email Address"
                             />
                         </div>
                         <div className="form-group mt-3">
@@ -81,79 +141,25 @@ const LoginPage = (props) => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 type="password"
                                 className="form-control mt-1"
-                                placeholder="Enter password"
+                                placeholder="Password"
                             />
                         </div>
                         <div className="d-grid gap-2 mt-3">
                             <button disabled={loading} type="submit" className="btn btn-primary">
                                 Submit
                             </button>
+                            <button onClick={signInWithGoogle} className="btn"
+                                    style={{border: '1px solid black'}}>Continue
+                                with <img src={require('../../img/google-logo.png')} height='22px' alt='g'/></button>
                         </div>
                         <p className="text-center mt-2">
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             Forgot <a href="#">password?</a>
                         </p>
                     </div>
                 </form>
             </div>
-        )
-    }
-
-    return (
-        <div className="Auth-form-container d-flex flex-row">
-            <div className='left-column'>POZA</div>
-            <form className="Auth-form" onSubmit={handleSignUp}>
-                <div className="Auth-form-content">
-                    <h3 className="Auth-form-title">Sign Up</h3>
-                    <div className="text-center">
-                        {currentUser && currentUser.email}
-                        {error && <Alert variant='danger'>{error}</Alert>}
-                        Already registered?{" "}
-                        <span className="link-primary" onClick={changeAuthMode}>
-
-              Sign In
-            </span>
-                    </div>
-                    <div className="form-group mt-3">
-                        <label>Full Name</label>
-                        <input
-                            ref={fullNameRef}
-                            type="text"
-                            className="form-control mt-1"
-                            placeholder="e.g Jane Doe"
-                        />
-                    </div>
-                    <div className="form-group mt-3">
-                        <label>Email address</label>
-                        <input
-                            onChange={(e) => setEmail(e.target.value)}
-                            type="email"
-                            className="form-control mt-1"
-                            placeholder="Email Address"
-                        />
-                    </div>
-                    <div className="form-group mt-3">
-                        <label>Password</label>
-                        <input
-                            onChange={(e) => setPassword(e.target.value)}
-                            type="password"
-                            className="form-control mt-1"
-                            placeholder="Password"
-                        />
-                    </div>
-                    <div className="d-grid gap-2 mt-3">
-                        <button disabled={loading} type="submit" className="btn btn-primary">
-                            Submit
-                        </button>
-                        <button onClick={signInWithGoogle} className="btn" style={{border: '1px solid black'}}>Continue
-                            with <img src={require('../../img/google-logo.png')} height='22px' alt='g'/></button>
-                    </div>
-                    <p className="text-center mt-2">
-                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                        Forgot <a href="#">password?</a>
-                    </p>
-                </div>
-            </form>
-
+            <div style={{padding: '10px'}}><b>At the moment, we're not accepting new users</b></div>
         </div>
     )
 }
