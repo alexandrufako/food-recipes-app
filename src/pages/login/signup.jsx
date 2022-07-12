@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from "react"
 import {useNavigate} from 'react-router-dom'
 import {Context} from "../../context/context";
 import {Alert} from "react-bootstrap";
-import {auth} from '../../utils/api/firebase'
+import {auth, signInWithGoogle} from '../../utils/api/firebase'
 
 
 const SignUp = (props) => {
@@ -141,6 +141,7 @@ const SignUp = (props) => {
                         <button disabled={loading} type="submit" className="btn btn-primary">
                             Submit
                         </button>
+                        <button onClick={signInWithGoogle} className="btn btn-primary">sign in with google</button>
                     </div>
                     <p className="text-center mt-2">
                         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -148,6 +149,7 @@ const SignUp = (props) => {
                     </p>
                 </div>
             </form>
+
         </div>
     )
 }
