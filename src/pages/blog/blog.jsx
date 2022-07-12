@@ -1,8 +1,10 @@
+import './blog.css'
+
 const BlogPage = () => {
 
 
     return (
-        <div>
+        <div className='blog-container'>
             blog page
         </div>
     )
