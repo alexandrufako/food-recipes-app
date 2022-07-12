@@ -1,14 +1,14 @@
-import React, { useState, useRef } from "react"
-import { useNavigate } from 'react-router-dom'
-import {useAuth} from "../../context/context";
+import React, {useState, useRef, useEffect} from "react"
+import {useNavigate} from 'react-router-dom'
+import {Context} from "../../context/context";
 import {Alert} from "react-bootstrap";
-import { auth } from '../../utils/api/firebase'
+import {auth} from '../../utils/api/firebase'
 
 
 const SignUp = (props) => {
-    let [authMode, setAuthMode] = useState("signup")
+    const [authMode, setAuthMode] = useState("signup")
     const [error, setError] = useState('')
-    const [loading, setLoading] =useState(false)
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
     const changeAuthMode = () => {
@@ -19,18 +19,18 @@ const SignUp = (props) => {
     const [password, setPassword] = useState()
     const fullNameRef = useRef()
     // eslint-disable-next-line no-unused-vars
-    const { createUser, currentUser, signIn } = useAuth()
+    const {createUser, currentUser, signIn} = Context()
 
     const handleSignUp = async (e) => {
         e.preventDefault()
 
         try {
             setError('')
-            setLoading(true)
             await createUser(email, password)
+            setLoading(true)
             navigate('/user')
 
-        } catch(e) {
+        } catch (e) {
             setError(e.message)
             console.log(e.message)
         }
@@ -39,15 +39,16 @@ const SignUp = (props) => {
 
     const handleSignIn = async (e) => {
         e.preventDefault()
-        try{
+        try {
             setError('')
             await signIn(email, password)
             navigate('/user')
-        }catch(e){
+        } catch (e) {
             setError(e.message)
             console.log(e.message)
         }
     }
+
 
     if (authMode === "signin") {
         return (
@@ -57,7 +58,7 @@ const SignUp = (props) => {
                         <h3 className="Auth-form-title">Sign In</h3>
                         <div className="text-center">
                             {currentUser && currentUser.email}
-                            {error && <Alert variant='danger'>{error}</Alert> }
+                            {error && <Alert variant='danger'>{error}</Alert>}
                             Not registered yet?{" "}
                             <span className="link-primary" onClick={changeAuthMode}>
                 Sign Up
@@ -101,8 +102,8 @@ const SignUp = (props) => {
                 <div className="Auth-form-content">
                     <h3 className="Auth-form-title">Sign Up</h3>
                     <div className="text-center">
-                        {currentUser?.email}
-                        {error && <Alert variant='danger'>{error}</Alert> }
+                        {currentUser && currentUser.email}
+                        {error && <Alert variant='danger'>{error}</Alert>}
                         Already registered?{" "}
                         <span className="link-primary" onClick={changeAuthMode}>
 

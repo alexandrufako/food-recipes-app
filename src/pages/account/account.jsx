@@ -1,19 +1,21 @@
-import {useAuth} from "../../context/context";
+import {Context} from "../../context/context";
 import './account.css'
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 const UserAccountPage = () => {
-    const { currentUser, logOut } = useAuth()
+    const {currentUser, logOut} = Context()
     const navigate = useNavigate()
     const handleLogout = async () => {
-        try{
+        try {
             await logOut()
             navigate('/login')
             console.log('you are logged out')
-        }catch(e){
+        } catch (e) {
             console.log(e.message)
         }
     }
+
 
     return (
         <div className='text-center user-container'>

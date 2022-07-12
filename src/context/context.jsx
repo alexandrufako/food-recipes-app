@@ -5,11 +5,11 @@ import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onA
 
 export const Ctx = createContext();
 
-export const useAuth = () => {
+export const Context = () => {
     return useContext(Ctx);
 }
 export const Provider = ({children}) => {
-    const [currentUser, setCurrentUser] = useState()
+    const [currentUser, setCurrentUser] = useState({})
     const createUser = (email, password) => {                           //sign up
         return createUserWithEmailAndPassword(auth, email, password)
     }
@@ -23,8 +23,6 @@ export const Provider = ({children}) => {
     }
 
 
-
-
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, user => {
             setCurrentUser(user)
@@ -35,15 +33,20 @@ export const Provider = ({children}) => {
     }, [])
 
 
-    const value = {
+    // const value = {
+    //     currentUser,
+    //     createUser,
+    //     signIn,
+    //     logOut
+    // }
+
+
+    return <Ctx.Provider value={{
         currentUser,
         createUser,
         signIn,
         logOut
-    }
-
-
-    return <Ctx.Provider value={value}>
+    }}>
         {children}
     </Ctx.Provider>;
 }
