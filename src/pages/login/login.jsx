@@ -2,7 +2,8 @@ import React, {useState, useRef, useEffect} from "react"
 import {useNavigate} from 'react-router-dom'
 import {Context} from "../../context/context";
 import {Alert} from "react-bootstrap";
-import {auth, signInWithGoogle} from '../../utils/api/firebase'
+import {auth} from '../../utils/api/firebase'
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import './login.css'
 
 
@@ -30,7 +31,7 @@ const LoginPage = (props) => {
             await createUser(email, password)
             setLoading(true)
             navigate('/user')
-
+            console.log(currentUser)
         } catch (e) {
             setError(e.message)
             console.log(e.message)
@@ -49,6 +50,31 @@ const LoginPage = (props) => {
             console.log(e.message)
         }
     }
+
+//     const provider = new GoogleAuthProvider()
+//
+// //asta trebuie mutata in sign-in
+//     const signInWithGoogle = () => {
+//         signInWithPopup(auth, provider)
+//             .then((result) => {
+//                 console.log(result)
+//                 const name = result.user.displayName;
+//                 const email = result.user.email;
+//                 const profilePic = result.user.photoURL;
+//
+//                 localStorage.setItem('name', name)
+//                 localStorage.setItem('email', email)
+//                 localStorage.setItem('profilePic', profilePic)
+//             })
+//             .catch((e) => {
+//                 console.log(e)
+//             })
+//
+//     }
+//
+// // de folosit in profil
+// // localStorage.getItem('name')
+// // <img src={localStorage.getItem('profilePic')} />
 
     // <img src={require('../../img/her-vietnamese-food.jpg')} height='550px'/>
     if (authMode === "signin") {
@@ -141,16 +167,16 @@ const LoginPage = (props) => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 type="password"
                                 className="form-control mt-1"
-                                placeholder="Password"
+                                placeholder="Password (min. 6 char)"
                             />
                         </div>
                         <div className="d-grid gap-2 mt-3">
                             <button disabled={loading} type="submit" className="btn btn-primary">
                                 Submit
                             </button>
-                            <button onClick={signInWithGoogle} className="btn"
-                                    style={{border: '1px solid black'}}>Continue
-                                with <img src={require('../../img/google-logo.png')} height='22px' alt='g'/></button>
+                            {/*<button onClick={signInWithGoogle} className="btn"*/}
+                            {/*        style={{border: '1px solid black'}}>Continue*/}
+                            {/*    with <img src={require('../../img/google-logo.png')} height='22px' alt='g'/></button>*/}
                         </div>
                         <p className="text-center mt-2">
                             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}

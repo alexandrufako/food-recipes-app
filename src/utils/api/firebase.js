@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { getAuth } from 'firebase/auth'
 
 
 const app = initializeApp({
@@ -14,27 +14,3 @@ const app = initializeApp({
 export const auth = getAuth(app);
 export default app
 
-const provider = new GoogleAuthProvider()
-
-//asta trebuie mutata in sign-in
-export const signInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            console.log(result)
-            const name = result.user.displayName;
-            const email = result.user.email;
-            const profilePic = result.user.photoURL;
-
-            localStorage.setItem('name', name)
-            localStorage.setItem('email', email)
-            localStorage.setItem('profilePic', profilePic)
-        })
-        .catch((e) => {
-            console.log(e)
-        })
-
-}
-
-// de folosit in profil
-// localStorage.getItem('name')
-// <img src={localStorage.getItem('profilePic')} />

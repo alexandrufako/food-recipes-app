@@ -21,7 +21,8 @@ function App() {
                         <Route path='/login' element={<LoginPage/>}/>
                         <Route path='/recipe-details/:id' element={<RecipeDetails/>}/>
                         <Route path='/blog' element={<BlogPage/>}/>
-                        <Route path='/user' element={<ProtectedRoute><UserAccountPage/></ProtectedRoute>}/>
+                        <Route path='/user' element={<UserAccountPage/>} />
+                        {/*<Route path='/user' element={<ProtectedRoute><UserAccountPage/></ProtectedRoute>}/>*/}
                     </Routes>
                 </Router>
             </div>
