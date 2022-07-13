@@ -80,7 +80,7 @@ const LoginPage = (props) => {
     if (authMode === "signin") {
         return (
             <div className="Auth-form-container d-flex flex-column">
-                <div className='d-flex flex-row' style={{boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px', borderRadius: '10px'}}>
+                <div className='d-flex flex-row' style={{padding: '25px', boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px', border: '3px solid white', borderRadius: '10px'}}>
                     <div className='left-column'></div>
                     <form className="Auth-form" onSubmit={handleSignIn}>
                         <div className="Auth-form-content">
@@ -89,7 +89,7 @@ const LoginPage = (props) => {
                                 {currentUser && currentUser.email}
                                 {error && <Alert variant='danger'>{error}</Alert>}
                                 Not registered yet?{" "}
-                                <span className="link-primary" onClick={changeAuthMode}>
+                                <span className="link-primary" onClick={changeAuthMode} style={{cursor: 'pointer'}}>
                 Sign Up
               </span>
                             </div>
@@ -129,7 +129,7 @@ const LoginPage = (props) => {
 
     return (
         <div className="Auth-form-container d-flex flex-column">
-            <div className='d-flex flex-row' style={{boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px', borderRadius: '10px'}}>
+            <div className='d-flex flex-row' style={{padding: '25px',boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px', border: '3px solid white', borderRadius: '10px'}}>
                 <div className='left-column'></div>
                 <form className="Auth-form" onSubmit={handleSignUp}>
                     <div className="Auth-form-content">
@@ -138,7 +138,7 @@ const LoginPage = (props) => {
                             {currentUser && currentUser.email}
                             {error && <Alert variant='danger'>{error}</Alert>}
                             Already registered?{" "}
-                            <span className="link-primary" onClick={changeAuthMode}>
+                            <span className="link-primary" onClick={changeAuthMode} style={{cursor: 'pointer'}}>
 
               Sign In
             </span>

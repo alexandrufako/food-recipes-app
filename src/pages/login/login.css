@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 98.5vw;
     height: 100vh;
     box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
 }
@@ -44,7 +44,7 @@ label {
     height: 650px;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
-    background: url("../../img/cutting-turkey-thigh.jpg") no-repeat center;
+    background: url("../../img/salmon-appetizer.jpg") no-repeat center;
     background-size: cover;
 
 }

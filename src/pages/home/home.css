@@ -21,7 +21,7 @@
 .home-carousel {
     margin-top: 1rem;
     border: 1px solid bisque;
-    max-width: 1400px;
+    max-width: 1200px;
     width: 88vw;
-    height: 500px;
+    border-radius: 10px;
 }
