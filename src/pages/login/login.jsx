@@ -149,7 +149,7 @@ const LoginPage = (props) => {
                                 ref={fullNameRef}
                                 type="text"
                                 className="form-control mt-1"
-                                placeholder="e.g Jane Doe"
+                                placeholder="ex Jane Doe"
                             />
                         </div>
                         <div className="form-group mt-3">
