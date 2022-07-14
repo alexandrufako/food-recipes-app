@@ -17,8 +17,8 @@
 
 .Auth-form {
     width: 520px;
-    height: 650px;
-    padding-top: 30px;
+    height: 750px;
+    padding-top: -20px;
     padding-bottom: 20px;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
@@ -32,7 +32,7 @@
 
 .Auth-form-title {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: -1rem;
     margin-bottom: 1rem;
     font-size: 30px;
     color: rgb(34, 34, 34);
@@ -49,7 +49,7 @@ label {
 .left-column {
     width: 460px;
     background-color: white;
-    height: 650px;
+    height: 750px;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     background: url("../../img/salmon-appetizer.jpg") no-repeat center;

@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import {Context} from "../../context/context";
 import {Alert} from "react-bootstrap";
 import {auth} from '../../utils/api/firebase'
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 import './login.css'
 
 
@@ -80,11 +80,20 @@ const LoginPage = (props) => {
     if (authMode === "signin") {
         return (
             <div className="Auth-form-container d-flex flex-column">
+                <div className='logo'><img src={require('../../img/cantina-logo .png')} height='200px'
+                                           style={{padding: "30px", marginTop: '-170px', marginBottom: '80px'}}/></div>
                 <div className='background'></div>
-                <div className='d-flex flex-row' style={{padding: '25px', boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px', border: '3px solid white', borderRadius: '10px'}}>
+                <div className='d-flex flex-row' style={{
+                    padding: '25px',
+                    boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px',
+                    border: '3px solid white',
+                    borderRadius: '10px'
+                }}>
                     <div className='left-column'></div>
                     <form className="Auth-form" onSubmit={handleSignIn}>
                         <div className="Auth-form-content">
+                            <div className='text-center'><img src={require('../../img/food-vlogger.gif')}
+                                                              height='250px'/></div>
                             <h3 className="Auth-form-title">Sign In</h3>
                             <div className="text-center">
                                 {currentUser && currentUser.email}
@@ -94,7 +103,7 @@ const LoginPage = (props) => {
                 Sign Up
               </span>
                             </div>
-                            <div className="form-group mt-5">
+                            <div className="form-group mt-4">
                                 <label>Email address</label>
                                 <input
                                     onChange={(e) => setEmail(e.target.value)}
@@ -112,7 +121,7 @@ const LoginPage = (props) => {
                                     placeholder="Enter password"
                                 />
                             </div>
-                            <div className="d-grid gap-2 mt-5">
+                            <div className="d-grid gap-2 mt-4">
                                 <button disabled={loading} type="submit" className="btn btn-primary">
                                     Submit
                                 </button>
@@ -123,18 +132,28 @@ const LoginPage = (props) => {
                         </div>
                     </form>
                 </div>
-                <div style={{padding: '10px'}}><b>At the moment, we're not accepting new users</b></div>
+                <div style={{padding: '10px'}}><b>At the moment, we're not accepting new users.</b></div>
             </div>
         )
     }
 
     return (
+
         <div className="Auth-form-container d-flex flex-column">
+            <div className='logo'><img src={require('../../img/cantina-logo .png')} height='200px'
+                                       style={{padding: "30px", marginTop: '-170px', marginBottom: '80px'}}/></div>
             <div className='background'></div>
-            <div className='d-flex flex-row' style={{padding: '25px',boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px', border: '3px solid white', borderRadius: '10px'}}>
+            <div className='d-flex flex-row' style={{
+                padding: '25px',
+                boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px',
+                border: '3px solid white',
+                borderRadius: '10px'
+            }}>
                 <div className='left-column'></div>
                 <form className="Auth-form" onSubmit={handleSignUp}>
                     <div className="Auth-form-content">
+                        <div className='text-center'><img src={require('../../img/food-vlogger.gif')} height='250px'/>
+                        </div>
                         <h3 className="Auth-form-title">Sign Up</h3>
                         <div className="text-center">
                             {currentUser && currentUser.email}
@@ -145,7 +164,7 @@ const LoginPage = (props) => {
               Sign In
             </span>
                         </div>
-                        <div className="form-group mt-5">
+                        <div className="form-group mt-4">
                             <label>Full Name</label>
                             <input
                                 ref={fullNameRef}
@@ -187,8 +206,9 @@ const LoginPage = (props) => {
                     </div>
                 </form>
             </div>
-            <div style={{padding: '10px'}}><b>At the moment, we're not accepting new users</b></div>
+            <div style={{padding: '10px'}}><b>At the moment, we're not accepting new users.</b></div>
         </div>
+
     )
 }
 
