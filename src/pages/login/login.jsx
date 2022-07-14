@@ -71,15 +71,16 @@ const LoginPage = (props) => {
 //             })
 //
 //     }
-//
-// // de folosit in profil
+
+// de folosit in profil
 // // localStorage.getItem('name')
 // // <img src={localStorage.getItem('profilePic')} />
 
-    // <img src={require('../../img/her-vietnamese-food.jpg')} height='550px'/>
+
     if (authMode === "signin") {
         return (
             <div className="Auth-form-container d-flex flex-column">
+                <div className='background'></div>
                 <div className='d-flex flex-row' style={{padding: '25px', boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px', border: '3px solid white', borderRadius: '10px'}}>
                     <div className='left-column'></div>
                     <form className="Auth-form" onSubmit={handleSignIn}>
@@ -93,7 +94,7 @@ const LoginPage = (props) => {
                 Sign Up
               </span>
                             </div>
-                            <div className="form-group mt-3">
+                            <div className="form-group mt-5">
                                 <label>Email address</label>
                                 <input
                                     onChange={(e) => setEmail(e.target.value)}
@@ -102,7 +103,7 @@ const LoginPage = (props) => {
                                     placeholder="Enter email"
                                 />
                             </div>
-                            <div className="form-group mt-3">
+                            <div className="form-group mt-4">
                                 <label>Password</label>
                                 <input
                                     onChange={(e) => setPassword(e.target.value)}
@@ -111,12 +112,12 @@ const LoginPage = (props) => {
                                     placeholder="Enter password"
                                 />
                             </div>
-                            <div className="d-grid gap-2 mt-3">
+                            <div className="d-grid gap-2 mt-5">
                                 <button disabled={loading} type="submit" className="btn btn-primary">
                                     Submit
                                 </button>
                             </div>
-                            <p className="text-center mt-2">
+                            <p className="text-center mt-4">
                                 Forgot <a href="#">password?</a>
                             </p>
                         </div>
@@ -129,6 +130,7 @@ const LoginPage = (props) => {
 
     return (
         <div className="Auth-form-container d-flex flex-column">
+            <div className='background'></div>
             <div className='d-flex flex-row' style={{padding: '25px',boxShadow: 'rgb(0 0 0 / 20%) 1px 1px 20px', border: '3px solid white', borderRadius: '10px'}}>
                 <div className='left-column'></div>
                 <form className="Auth-form" onSubmit={handleSignUp}>
@@ -143,7 +145,7 @@ const LoginPage = (props) => {
               Sign In
             </span>
                         </div>
-                        <div className="form-group mt-3">
+                        <div className="form-group mt-5">
                             <label>Full Name</label>
                             <input
                                 ref={fullNameRef}
@@ -152,7 +154,7 @@ const LoginPage = (props) => {
                                 placeholder="ex Jane Doe"
                             />
                         </div>
-                        <div className="form-group mt-3">
+                        <div className="form-group mt-4">
                             <label>Email address</label>
                             <input
                                 onChange={(e) => setEmail(e.target.value)}
@@ -161,7 +163,7 @@ const LoginPage = (props) => {
                                 placeholder="Email Address"
                             />
                         </div>
-                        <div className="form-group mt-3">
+                        <div className="form-group mt-4">
                             <label>Password</label>
                             <input
                                 onChange={(e) => setPassword(e.target.value)}
@@ -170,7 +172,7 @@ const LoginPage = (props) => {
                                 placeholder="Password (min. 6 char)"
                             />
                         </div>
-                        <div className="d-grid gap-2 mt-3">
+                        <div className="d-grid gap-2 mt-4">
                             <button disabled={loading} type="submit" className="btn btn-primary">
                                 Submit
                             </button>
@@ -178,7 +180,7 @@ const LoginPage = (props) => {
                             {/*        style={{border: '1px solid black'}}>Continue*/}
                             {/*    with <img src={require('../../img/google-logo.png')} height='22px' alt='g'/></button>*/}
                         </div>
-                        <p className="text-center mt-2">
+                        <p className="text-center mt-4">
                             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             Forgot <a href="#">password?</a>
                         </p>

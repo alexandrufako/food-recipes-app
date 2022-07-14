@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine&family=Mulish:ital,wght@1,300&family=Source+Sans+Pro:ital,wght@1,600;1,900&display=swap');
+/*font-family: 'Domine', serif;*/
+/*font-family: 'Mulish', sans-serif;*/
+/*font-family: 'Source Sans Pro', sans-serif;*/
 
 .Auth-form-container {
     display: flex;
@@ -6,6 +10,9 @@
     width: 98.5vw;
     height: 100vh;
     box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    font-family: 'Mulish';
+    font-size: 20px;
+
 }
 
 .Auth-form {
@@ -27,13 +34,14 @@
     text-align: center;
     margin-top: 3rem;
     margin-bottom: 1rem;
-    font-size: 24px;
+    font-size: 30px;
     color: rgb(34, 34, 34);
-    font-weight: 800;
+    font-weight: 900;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: rgb(34, 34, 34);
 }
@@ -47,4 +55,16 @@ label {
     background: url("../../img/salmon-appetizer.jpg") no-repeat center;
     background-size: cover;
 
+}
+
+.background {
+    position: absolute;
+    z-index: -1;
+    width: 98.5vw;
+    height: 100vh;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    background: url("../../img/6702459.jpg") no-repeat;
+    text-align: center;
+    background-size: cover;
+    filter: blur(20px);
 }

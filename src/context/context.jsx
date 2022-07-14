@@ -33,14 +33,6 @@ export const Provider = ({children}) => {
     }, [])
 
 
-    // const value = {
-    //     currentUser,
-    //     createUser,
-    //     signIn,
-    //     logOut
-    // }
-
-
     return <Ctx.Provider value={{
         currentUser,
         createUser,

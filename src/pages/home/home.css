@@ -6,6 +6,12 @@
     height: 96vh;
 }
 
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .interior-home-container {
     display: flex;
     justify-content: center;
@@ -24,4 +30,17 @@
     max-width: 1200px;
     width: 88vw;
     border-radius: 10px;
+}
+
+.background {
+    display: flex;
+    position: absolute;
+    z-index: -1;
+    width: 98.5vw;
+    height: 100vh;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    background: url('../../img/6702459.jpg') no-repeat;
+    text-align: center;
+    background-size: cover;
+    filter: blur(20px);
 }
