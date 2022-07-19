@@ -51,26 +51,26 @@ const LoginPage = (props) => {
         }
     }
 
-//     const provider = new GoogleAuthProvider()
-//
-// //asta trebuie mutata in sign-in
-//     const signInWithGoogle = () => {
-//         signInWithPopup(auth, provider)
-//             .then((result) => {
-//                 console.log(result)
-//                 const name = result.user.displayName;
-//                 const email = result.user.email;
-//                 const profilePic = result.user.photoURL;
-//
-//                 localStorage.setItem('name', name)
-//                 localStorage.setItem('email', email)
-//                 localStorage.setItem('profilePic', profilePic)
-//             })
-//             .catch((e) => {
-//                 console.log(e)
-//             })
-//
-//     }
+    const provider = new GoogleAuthProvider()
+
+//asta trebuie mutata in sign-in
+    const signInWithGoogle = () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                console.log(result)
+                const name = result.user.displayName;
+                const email = result.user.email;
+                const profilePic = result.user.photoURL;
+
+                localStorage.setItem('name', name)
+                localStorage.setItem('email', email)
+                localStorage.setItem('profilePic', profilePic)
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+
+    }
 
 // de folosit in profil
 // // localStorage.getItem('name')
@@ -81,7 +81,7 @@ const LoginPage = (props) => {
         return (
             <div className="Auth-form-container d-flex flex-column">
                 <div className='logo'><img src={require('../../img/cantina-logo .png')} height='200px'
-                                           style={{padding: "30px", marginTop: '-170px', marginBottom: '80px'}}/></div>
+                                           style={{padding: "30px", marginTop: '-170px', marginBottom: '150px'}}/></div>
                 <div className='background'></div>
                 <div className='d-flex flex-row' style={{
                     padding: '25px',
@@ -92,7 +92,7 @@ const LoginPage = (props) => {
                     <div className='left-column'></div>
                     <form className="Auth-form" onSubmit={handleSignIn}>
                         <div className="Auth-form-content">
-                            <div className='text-center'><img src={require('../../img/food-vlogger.gif')}
+                            <div className='text-center'><img src={require('../../img/dff7c253319193.592ffe6375e53.gif')}
                                                               height='250px'/></div>
                             <h3 className="Auth-form-title">Sign In</h3>
                             <div className="text-center">
@@ -125,8 +125,12 @@ const LoginPage = (props) => {
                                 <button disabled={loading} type="submit" className="btn btn-primary">
                                     Submit
                                 </button>
+                                <button onClick={signInWithGoogle} className="btn"
+                                        style={{border: '1px solid black'}}>Continue
+                                    with <img src={require('../../img/google-logo.png')} height='22px' alt='g'/>
+                                </button>
                             </div>
-                            <p className="text-center mt-4">
+                            <p className="text-center mt-4" style={{fontSize: 16}}>
                                 Forgot <a href="#">password?</a>
                             </p>
                         </div>
@@ -141,7 +145,7 @@ const LoginPage = (props) => {
 
         <div className="Auth-form-container d-flex flex-column">
             <div className='logo'><img src={require('../../img/cantina-logo .png')} height='200px'
-                                       style={{padding: "30px", marginTop: '-170px', marginBottom: '80px'}}/></div>
+                                       style={{padding: "30px", marginTop: '-170px', marginBottom: '150px'}}/></div>
             <div className='background'></div>
             <div className='d-flex flex-row' style={{
                 padding: '25px',
@@ -152,7 +156,7 @@ const LoginPage = (props) => {
                 <div className='left-column'></div>
                 <form className="Auth-form" onSubmit={handleSignUp}>
                     <div className="Auth-form-content">
-                        <div className='text-center'><img src={require('../../img/food-vlogger.gif')} height='250px'/>
+                        <div className='text-center'><img src={require('../../img/dff7c253319193.592ffe6375e53.gif')}/>
                         </div>
                         <h3 className="Auth-form-title">Sign Up</h3>
                         <div className="text-center">
@@ -173,7 +177,7 @@ const LoginPage = (props) => {
                                 placeholder="ex Jane Doe"
                             />
                         </div>
-                        <div className="form-group mt-4">
+                        <div className="form-group mt-3">
                             <label>Email address</label>
                             <input
                                 onChange={(e) => setEmail(e.target.value)}
@@ -182,7 +186,7 @@ const LoginPage = (props) => {
                                 placeholder="Email Address"
                             />
                         </div>
-                        <div className="form-group mt-4">
+                        <div className="form-group mt-3">
                             <label>Password</label>
                             <input
                                 onChange={(e) => setPassword(e.target.value)}
@@ -191,18 +195,15 @@ const LoginPage = (props) => {
                                 placeholder="Password (min. 6 char)"
                             />
                         </div>
-                        <div className="d-grid gap-2 mt-4">
+                        <div className="d-grid gap-2 mt-3">
                             <button disabled={loading} type="submit" className="btn btn-primary">
                                 Submit
                             </button>
-                            {/*<button onClick={signInWithGoogle} className="btn"*/}
-                            {/*        style={{border: '1px solid black'}}>Continue*/}
-                            {/*    with <img src={require('../../img/google-logo.png')} height='22px' alt='g'/></button>*/}
+                            <button onClick={signInWithGoogle} className="btn"
+                                    style={{border: '1px solid black'}}>Continue
+                                with <img src={require('../../img/google-logo.png')} height='22px' alt='g'/>
+                            </button>
                         </div>
-                        <p className="text-center mt-4">
-                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                            Forgot <a href="#">password?</a>
-                        </p>
                     </div>
                 </form>
             </div>

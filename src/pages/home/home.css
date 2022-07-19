@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 96vh;
+    height: 100vh;
 }
 
 .left {
@@ -18,14 +18,14 @@
     /*align-items: center;*/
     width: 90vw;
     max-width: 1440px;
-    height: 90vh;
-    background-color: white;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.38);
     border-radius: 5px;
     border: 1px solid #d7bf85;
 }
 
 .home-carousel {
-    margin-top: 1rem;
+    margin-top: 2rem;
     border: 1px solid bisque;
     max-width: 1200px;
     width: 88vw;

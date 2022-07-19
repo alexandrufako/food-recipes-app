@@ -68,3 +68,9 @@ label {
     background-size: cover;
     filter: blur(20px);
 }
+
+.text-center img {
+    margin: 1rem 0 2rem;
+    height: 200px;
+    border-radius: 10px;
+}
