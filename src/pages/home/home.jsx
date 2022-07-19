@@ -1,6 +1,7 @@
 import './home.css'
 import ControlledCarousel from "../../components/carousel/carousel";
 import SearchAccordion from "../../components/search/search";
+import Card from "../../components/card/card";
 
 
 const HomePage = () => {
@@ -15,7 +16,17 @@ const HomePage = () => {
                     <div className='left'>
                         <div className='home-carousel'><ControlledCarousel/></div>
                         <SearchAccordion/>
-                        <div className='recipes-container'>recipes container</div>
+                        <div className='recipes-container'>
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                        </div>
 
                     </div>
                     <div className='right'></div>
