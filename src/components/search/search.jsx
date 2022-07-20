@@ -1,9 +1,17 @@
 import Accordion from 'react-bootstrap/Accordion';
 import './search.css'
-import {useEffect} from "react";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 
 function SearchAccordion() {
+
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            Click here to open a more complex search tab where you can define what recipe you are searching for.
+        </Tooltip>
+    );
+
     return (
         <Accordion className='accordion'>
             <form>
@@ -11,8 +19,13 @@ function SearchAccordion() {
                 <Accordion.Header className='accordion-header w-80'>
 
                         <label style={{display: 'inline-block'}}><i className="bi bi-search" ></i></label>
+                    <OverlayTrigger
+                        placement='bottom-start'
+                        delay={{ show: 150, hide: 1000 }}
+                        overlay={renderTooltip}
+                    >
                         <input style={{display: 'inline-block'}} type='text' name='search' autoComplete='off' placeholder='Search for a recipe' />
-
+                    </OverlayTrigger>
 
                 </Accordion.Header>
                 <button className='submit-button'>Show me</button>
