@@ -9,7 +9,7 @@ const Card = (object) => {
           {console.log(recipe.title)}
         </div>
         <div className='card-title'>
-          {recipe.title}
+          <p>{recipe.title}</p>
         </div>
         <div>
           <button id="card-details-btn">See more</button>
