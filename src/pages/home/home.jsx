@@ -2,7 +2,7 @@ import './home.css'
 import ControlledCarousel from "../../components/carousel/carousel";
 import SearchAccordion from "../../components/search/search";
 import Card from "../../components/card/card";
-import { Context } from "../../context/context";
+// import { Context } from "../../context/context";
 import { getRandomRecipes } from './../../utils/api/api'
 import { useState } from 'react';
 import { useEffect } from 'react';
