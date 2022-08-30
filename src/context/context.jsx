@@ -10,6 +10,7 @@ export const Context = () => {
 }
 export const Provider = ({children}) => {
     const [currentUser, setCurrentUser] = useState({})
+
     const createUser = (email, password) => {                           //sign up
         return createUserWithEmailAndPassword(auth, email, password)
     }
@@ -29,7 +30,7 @@ export const Provider = ({children}) => {
             console.log(user)
         })
 
-        return unsubscribe()
+        return () => unsubscribe()
     }, [])
 
 

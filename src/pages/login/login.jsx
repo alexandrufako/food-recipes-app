@@ -30,7 +30,7 @@ const LoginPage = (props) => {
             setError('')
             await createUser(email, password)
             setLoading(true)
-            navigate('/user')
+            navigate('/home')
             console.log(currentUser)
         } catch (e) {
             setError(e.message)
@@ -43,8 +43,9 @@ const LoginPage = (props) => {
         e.preventDefault()
         try {
             setError('')
-            await signIn(email, password)
-            navigate('/user')
+            const user = await signIn(email, password)
+            console.log(user)
+            navigate('/home')
         } catch (e) {
             setError(e.message)
             console.log(e.message)

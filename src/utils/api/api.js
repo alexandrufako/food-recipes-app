@@ -2,7 +2,7 @@
 
 const baseRecipesUrl = 'https://api.spoonacular.com/recipes/';
 
-const recipeSearchUrl = 'https://api.spoonacular.com/recipes/complexSearch';
+const recipeSearchUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
 //      ex: GET https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2
 // query = string; what u search
 // cuisine = string; cuisine type
@@ -41,6 +41,8 @@ const computeShoppingListUrl = 'https://api.spoonacular.com/mealplanner/shopping
 // ]
 // }
 
+const getRandomRecipesUrl = `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
+
 
 const getSearchedRecipes = async (query, cuisineType, dietType, recipeNutrition, excludeIng, includeIng, nr) => {
     let cui = `cuisine=${cuisineType}`
@@ -49,12 +51,18 @@ const getSearchedRecipes = async (query, cuisineType, dietType, recipeNutrition,
     let exclude = `excludeIngredients=${excludeIng}`
     let include = `includeIngredients=${includeIng}`
     let number = nr || 10
-    const response = await fetch(`${recipeSearchUrl}?query=${query}&${cuisineType && cui}&${dietType && diet}&${recipeNutrition && nutrit}&${excludeIng && exclude}&${includeIng && include}&${number}`);
+    const response = await fetch(`${recipeSearchUrl}&query=${query}&${cuisineType && cui}&${dietType && diet}&${recipeNutrition && nutrit}&${excludeIng && exclude}&${includeIng && include}&${number}`);
+    console.log(response)
     return await response.json();
 };
 
 const getRecipeInformation = async (id) => {
     const response = await fetch(`${baseRecipesUrl}${id}/information`);
+    return await response.json();
+}
+
+const getRandomRecipes = async (tags = 'vegetarian', number = 15) => {
+    const response = await fetch(`${getRandomRecipesUrl}&number=${number}&tags=${tags}`);
     return await response.json();
 }
 
@@ -67,5 +75,7 @@ const getIngredientSubstitute = async(ingredientName) => {
     const response = await fetch(`${ingredientSubstituteUrl}?ingredientName=${ingredientName}`);
     return await response.json();
 }
+
+
 
 export {getRecipeNutrition, getRecipeInformation, getIngredientSubstitute, getSearchedRecipes}
