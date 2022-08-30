@@ -78,4 +78,4 @@ const getIngredientSubstitute = async(ingredientName) => {
 
 
 
-export {getRecipeNutrition, getRecipeInformation, getIngredientSubstitute, getSearchedRecipes}
+export {getRecipeNutrition, getRecipeInformation, getIngredientSubstitute, getSearchedRecipes, getRandomRecipes}

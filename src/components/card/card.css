@@ -1,7 +1,18 @@
 .card-container {
     width: 20rem;
-    height: 32rem;
-    background-color: #d7bf85;
+    height: 22rem;
+    /* background-color: #d7bf85; */
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
 
+.card-image {
+    width: 15rem;
+    /* height: 22rem; */ 
+}
+
+img {
+    object-fit: cover;
+    object-position: center;
 }

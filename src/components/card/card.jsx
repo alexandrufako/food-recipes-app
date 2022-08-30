@@ -1,10 +1,18 @@
 import './card.css'
 
-const Card = () => {
+const Card = (object) => {
+  const recipe = object.object
   return (
       <div className='card-container'>
+        <div className='card-image'>
+          <img src={recipe.image} alt='recipe' />
+          {console.log(recipe.title)}
+        </div>
+        <div className='card-title'>
+          {recipe.title}
+        </div>
         <div>
-          <img src='...image' alt='recipe' />
+          <button id="card-details-btn">See more</button>
         </div>
       </div>
   )

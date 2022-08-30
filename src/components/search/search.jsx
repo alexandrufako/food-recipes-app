@@ -3,8 +3,7 @@ import Form from 'react-bootstrap/Form';
 import './search.css'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import {getRecipeNutrition, getRecipeInformation, getIngredientSubstitute, getSearchedRecipes} from './../../utils/api/api'
-
+import { getSearchedRecipes } from './../../utils/api/api'
 import {useState, useEffect} from "react";
 
 
@@ -72,7 +71,7 @@ function SearchAccordion({onFetchDataComplete}) {
           const res = await getSearchedRecipes(searchQuery.search, searchQuery.cuisine, searchQuery.diet, searchQuery.addRecipeNutrition, searchQuery.excludeIngredients, searchQuery.includeIngredients, 10);
           onFetchDataComplete(res)
           //setComplexSearchDataArray(res);
-            console.log(res.results)
+            // console.log(res.results)
           
         };
         getData();
