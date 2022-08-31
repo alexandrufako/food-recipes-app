@@ -54,14 +54,7 @@ const buildQueryParamsFromObj = (params) => {
 }
 
 const getSearchedRecipes = async (query, cuisineType, dietType, recipeNutrition, excludeIng, includeIng, nr) => {
-    let search = `query=${query}`
-    let cui = `cuisine=${cuisineType}`
-    let diet = `diet=${dietType}`
-    let nutrit = `addRecipeNutrition=${recipeNutrition}`
-    let exclude = `excludeIngredients=${excludeIng}`
-    let include = `includeIngredients=${includeIng}`
-    let number = nr || 10
-
+   
     const queryParams = buildQueryParamsFromObj({
         query, 
         cuisine: cuisineType, 
@@ -70,7 +63,7 @@ const getSearchedRecipes = async (query, cuisineType, dietType, recipeNutrition,
         excludeIngredients: excludeIng,
         includeIngredients: includeIng,
         number: 12});
-console.log(queryParams)
+    console.log(queryParams)
     const response = await fetch(`${recipeSearchUrl}&${queryParams}`);
     console.log(response)
     
