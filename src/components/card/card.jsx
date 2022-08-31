@@ -1,7 +1,7 @@
 import './card.css'
 
-const Card = (object) => {
-  const recipe = object.object
+const Card = (props) => {
+  const recipe = props.data
   return (
       <div className='card-container'>
         <div className='card-image'>
@@ -12,7 +12,7 @@ const Card = (object) => {
           <p>{recipe.title}</p>
         </div>
         <div>
-          <button id="card-details-btn">See more</button>
+          <button id="card-details-btn" onClick={() => props.cardBtnOnClick(recipe.id)}>See more</button>
         </div>
       </div>
   )
@@ -20,8 +20,4 @@ const Card = (object) => {
 
 export default Card;
 
-
-// id: 716426
-// image: "https://spoonacular.com/recipeImages/716426-312x231.jpg"
-// imageType: "jpg"
-// title: "Cauliflower, Brown Rice, and Vegetable Fried Rice"
+//! trebuie facuta o functie de onclick pe card container/see more care sa ia recipe.id si sa faca GET *recipeInstructionsUrl()* si *recipeInformationUrl()* in pagina de DETAILS

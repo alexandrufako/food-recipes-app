@@ -8,6 +8,7 @@ import BlogPage from "../src/pages/blog/blog";
 import RecipeDetails from "../src/pages/recipe/recipe";
 import {Provider} from "./context/context";
 import ProtectedRoute from './components/protectedRoute/protectedRoute'
+import Details from './pages/details/details';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                         <Route path='/recipe-details/:id' element={<RecipeDetails/>}/>
                         <Route path='/blog' element={<BlogPage/>}/>
                         <Route path='/user' element={<UserAccountPage/>} />
+                        <Route path='/details/:id' element={<Details/>} />
                         {/*<Route path='/user' element={<ProtectedRoute><UserAccountPage/></ProtectedRoute>}/>*/}
                     </Routes>
                 </Router>

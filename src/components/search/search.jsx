@@ -1,5 +1,4 @@
 import Accordion from 'react-bootstrap/Accordion';
-import Form from 'react-bootstrap/Form';
 import './search.css'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
@@ -24,7 +23,7 @@ function SearchAccordion({onFetchDataComplete}) {
     includeIngredients: null
     })
 
-    const [simpleSearch, setSimpleSearch] = useState('');
+    const [simpleSearch, setSimpleSearch] = useState(null);
     const [cuisine, setCuisine] = useState(null);
     const [diet, setDiet] = useState(null);
     const [exclude, setExclude] = useState(null);
@@ -48,7 +47,7 @@ function SearchAccordion({onFetchDataComplete}) {
                 setExclude(event.target.value);
                 break
             default:
-                setSimpleSearch('tomatoes')
+                setSimpleSearch(null)
                 break;
         }
     }

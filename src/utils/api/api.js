@@ -43,16 +43,37 @@ const computeShoppingListUrl = 'https://api.spoonacular.com/mealplanner/shopping
 
 const getRandomRecipesUrl = `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
 
+const buildQueryParamsFromObj = (params) => {
+    const temp = []
+    Object.keys(params).forEach(key => {
+        if(params[key]){
+            temp.push(`${key}=${params[key]}`)
+        }
+    })
+    return temp.join('&');
+}
 
 const getSearchedRecipes = async (query, cuisineType, dietType, recipeNutrition, excludeIng, includeIng, nr) => {
+    let search = `query=${query}`
     let cui = `cuisine=${cuisineType}`
     let diet = `diet=${dietType}`
     let nutrit = `addRecipeNutrition=${recipeNutrition}`
     let exclude = `excludeIngredients=${excludeIng}`
     let include = `includeIngredients=${includeIng}`
     let number = nr || 10
-    const response = await fetch(`${recipeSearchUrl}&query=${query}&${cuisineType && cui}&${dietType && diet}&${recipeNutrition && nutrit}&${excludeIng && exclude}&${includeIng && include}&${number}`);
+
+    const queryParams = buildQueryParamsFromObj({
+        query, 
+        cuisine: cuisineType, 
+        diet: dietType, 
+        addRecipeNutrition: recipeNutrition,
+        excludeIngredients: excludeIng,
+        includeIngredients: includeIng,
+        number: 12});
+console.log(queryParams)
+    const response = await fetch(`${recipeSearchUrl}&${queryParams}`);
     console.log(response)
+    
     return await response.json();
 };
 

@@ -4,28 +4,35 @@ import SearchAccordion from "../../components/search/search";
 import Card from "../../components/card/card";
 // import { Context } from "../../context/context";
 import { getRandomRecipes } from './../../utils/api/api'
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
 
 // const {currentUser} = Context();
 // console.log(currentUser)
 
-const [receivedData, setReceivedData] = useState(null)
-const [randomRecipesArray, setRandomRecipesArray] = useState(null)
+const [recipesToShow, setRecipesToShow] = useState(null)
 
-useEffect(() => {
+const navigate = useNavigate();
+
+useEffect(() => {  //--> atribuie array de retete la montarea initiala a componentei
     const getRandomRecipesOnMount = async () => {
         const res = await getRandomRecipes("vegetarian", 12);
-        setRandomRecipesArray(res.recipes)
+        setRecipesToShow(res.recipes)
         console.log(res.recipes)
     };
     getRandomRecipesOnMount()
 }, [])
 
 const handleOnSearchComplete = (data) => {
-    console.log("home", data)
+    console.log("home", data.results) // -> verifica daca din search primesc date
+    setRecipesToShow(data.results)
+
+}
+
+const handleRedirect = (id) => {
+    navigate(`/details/${id}`)
 }
     return (
         <>
@@ -37,7 +44,7 @@ const handleOnSearchComplete = (data) => {
                         <div className='home-carousel'><ControlledCarousel/></div>
                         <SearchAccordion onFetchDataComplete={handleOnSearchComplete}/>
                         <div className='recipes-container'>
-                            {randomRecipesArray && randomRecipesArray.map((recipe) => <Card key={recipe.id} object={recipe}/>)}
+                            {recipesToShow && recipesToShow.map((recipe) => <Card key={recipe.id} data={recipe} cardBtnOnClick={handleRedirect}/>)}
                             
                         </div>
 
