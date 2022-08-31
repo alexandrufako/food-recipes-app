@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Accordion from 'react-bootstrap/Accordion';
 import './search.css'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';

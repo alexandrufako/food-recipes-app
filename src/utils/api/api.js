@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // noinspection SpellCheckingInspection
 
 const baseRecipesUrl = 'https://api.spoonacular.com/recipes/';

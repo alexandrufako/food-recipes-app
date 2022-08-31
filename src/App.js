@@ -7,7 +7,7 @@ import UserAccountPage from "../src/pages/account/account";
 import BlogPage from "../src/pages/blog/blog";
 import RecipeDetails from "../src/pages/recipe/recipe";
 import {Provider} from "./context/context";
-import ProtectedRoute from './components/protectedRoute/protectedRoute'
+// import ProtectedRoute from './components/protectedRoute/protectedRoute'
 import Details from './pages/details/details';
 
 function App() {
