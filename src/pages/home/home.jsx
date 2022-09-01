@@ -16,9 +16,40 @@ const [recipesToShow, setRecipesToShow] = useState(null)
 
 const navigate = useNavigate();
 
-useEffect(() => {  //--> atribuie array de retete la montarea initiala a componentei
+useEffect(() => {  //--> atribuie array de retete la montarea initiala a componentei | face call random din lista de tipuri de bucatarii
     const getRandomRecipesOnMount = async () => {
-        const res = await getRandomRecipes("vegetarian", 12);
+        const randomCuisineType = () => {
+            const arrayCuisineTypes = ['African',
+                'American',
+                'vegetarian',
+                'vegan',
+                'main course',
+                'snack',
+                'drink',
+                'British',
+                'Cajun',
+                'Chinese',
+                'Eastern European',
+                'European',
+                'French',
+                'German',
+                'Greek',
+                'Indian',
+                'Irish',
+                'Italian',
+                'Japanese',
+                'Mediterranean',
+                'Mexican',
+                'Nordic',
+                'Southern',
+                'Spanish',
+                'Thai',
+                'Vietnamese']
+        
+            return arrayCuisineTypes[Math.floor(arrayCuisineTypes.length * Math.random())].toLowerCase()
+        }
+
+        const res = await getRandomRecipes(`${randomCuisineType()}`, 12);
         setRecipesToShow(res.recipes)
         console.log(res.recipes)
     };

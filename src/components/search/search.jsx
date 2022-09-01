@@ -4,7 +4,7 @@ import './search.css'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { getSearchedRecipes } from './../../utils/api/api'
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 
 function SearchAccordion({onFetchDataComplete}) {
@@ -29,7 +29,7 @@ function SearchAccordion({onFetchDataComplete}) {
     const [diet, setDiet] = useState(null);
     const [exclude, setExclude] = useState(null);
     const [include, setInclude] = useState(null);
-
+    //arata bine fontu, nu?
     const handleChange = (event) => {
         switch (event.target.name) {
             case 'search':

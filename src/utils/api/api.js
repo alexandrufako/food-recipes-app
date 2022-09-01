@@ -13,25 +13,25 @@ const recipeSearchUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKe
 // includeIngredients = string, A comma-separated list of ingredients that should/must be used in the recipes.
 // number = number; The number of expected results (between 1 and 100).
 
-const recipeInformationUrl = 'https://api.spoonacular.com/recipes/{id}/information';
+const recipeInformationUrl = `https://api.spoonacular.com/recipes/{id}/information?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
 //      ex:
 // id = number; the id of the recipe(get from recipeSearch)
 // includeNutrition = boolean; Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 
-const recipeNutritionUrl = 'https://api.spoonacular.com/recipes/{id}/nutritionWidget.json';
+const recipeNutritionUrl = `https://api.spoonacular.com/recipes/{id}/nutritionWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
 //      ex:
 // id = number; the id of the recipe(get from recipeSearch)
 
-const recipeInstructionsUrl = 'https://api.spoonacular.com/recipes/{id}/analyzedInstructions';
+const recipeInstructionsUrl = `https://api.spoonacular.com/recipes/{id}/analyzedInstructions?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
 //      ex:
 // id = number; the id of the recipe(get from recipeSearch)
 // stepBreakdown = boolean; Whether to break down the recipe steps even more.
 
-const ingredientSubstituteUrl = 'https://api.spoonacular.com/food/ingredients/substitutes';
+const ingredientSubstituteUrl = `https://api.spoonacular.com/food/ingredients/substitutes?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
 //      ex: https://api.spoonacular.com/food/ingredients/substitutes?ingredientName=butter;
 // ingredientName = string; The name of the ingredient you want to replace.
 
-const computeShoppingListUrl = 'https://api.spoonacular.com/mealplanner/shopping-list/compute';
+const computeShoppingListUrl = `https://api.spoonacular.com/mealplanner/shopping-list/compute?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
 //      ex: POST https://api.spoonacular.com/mealplanner/shopping-list/compute
 // {
 //     "items": [
@@ -71,26 +71,29 @@ const getSearchedRecipes = async (query, cuisineType, dietType, recipeNutrition,
     return await response.json();
 };
 
+
 const getRecipeInformation = async (id) => {
-    const response = await fetch(`${baseRecipesUrl}${id}/information`);
+    const response = await fetch(`${baseRecipesUrl}${id}/information?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
     return await response.json();
 }
 
-const getRandomRecipes = async (tags = 'vegetarian', number = 15) => {
+const getRandomRecipes = async (tags, number = 15) => {
     const response = await fetch(`${getRandomRecipesUrl}&number=${number}&tags=${tags}`);
+    console.log(response)
     return await response.json();
+    
 }
 
-const getRecipeNutrition = async (id) => {
-    const response = await fetch(`${baseRecipesUrl}${id}/analyzedInstructions`);
+const getRecipeInstructions = async (id) => {
+    const response = await fetch(`${baseRecipesUrl}${id}/analyzedInstructions?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
     return await response.json();
 }
 
 const getIngredientSubstitute = async(ingredientName) => {
-    const response = await fetch(`${ingredientSubstituteUrl}?ingredientName=${ingredientName}`);
+    const response = await fetch(`${ingredientSubstituteUrl}&ingredientName=${ingredientName}`);
     return await response.json();
 }
 
 
 
-export {getRecipeNutrition, getRecipeInformation, getIngredientSubstitute, getSearchedRecipes, getRandomRecipes}
+export {getRecipeInstructions, getRecipeInformation, getIngredientSubstitute, getSearchedRecipes, getRandomRecipes}
