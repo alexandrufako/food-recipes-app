@@ -47,7 +47,9 @@ useEffect(() => {  //--> atribuie array de retete la montarea initiala a compone
                 'Vietnamese']
         
             return arrayCuisineTypes[Math.floor(arrayCuisineTypes.length * Math.random())].toLowerCase()
-        }
+        } 
+        
+        //! trebuie intors elementul din array pe pagina ca si 'SHOWING RANDOM 'tralala' RECIPES'
 
         const res = await getRandomRecipes(`${randomCuisineType()}`, 12);
         setRecipesToShow(res.recipes)
