@@ -18,11 +18,12 @@ const Details = () => {
     console.log(params);
     console.log(recipeInformation);
 
-    return (<>
-    <div className="background"></div>
-    
+    return (
+    <div className="details-background">
+        {/* <div className="background"></div> */}
+
         <div className="details-container">
-            
+
             Details - {params.id}
             <div div className="top-image-container" > this should be an image</div >
             <div className="two-containers">
@@ -76,7 +77,7 @@ const Details = () => {
                 </div>
             </div>
         </div >
-        </>
+    </div>
     );
 };
 

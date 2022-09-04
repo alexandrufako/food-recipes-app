@@ -4,34 +4,36 @@
 .accordion-button {
     padding: 0;
 }
-.accordion-header {
-    width: 70vw;
-    display: inline-block;
+.accordion-item {
+    /* width: 60vw; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: space-between; */
+    margin: 0 auto;
 }
 .submit-button {
     display: inline-block;
     border: none;
     background-color: rgba(144, 238, 144, 0.31);
-    width: 8%;
+    width: 99%;
     padding: 7px;
     border-radius: 10px;
-    margin-left:5px;
+    margin:5px;
 }
 
-/*.accordion-body {*/
-/*    width: 77vw;*/
-/*}*/
 
 .accordion {
     margin-top: 1rem;
-    width: 77vw;
+    width: 100%;
 }
 
 input {
     border: none;
     padding: 0.9rem;
     margin-bottom: 1px;
-    width: 97%;
+    width: 80%;
+    display: inline-block;
+    /* width: 97vw; */
 }
 i {
     margin-left: 1rem;

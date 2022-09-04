@@ -1,13 +1,8 @@
-.background {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+.details-background {
     box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
-    background: url('../../img/6702459.jpg') cover repeat;
-    text-align: center;
-    filter: blur(20px);
-    z-index: -1;
+    background: url('../../img/6702459.jpg') repeat;
+    width: 100vw;
+    height: 100vh;
 }
 
 .details-container {
@@ -19,6 +14,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    
 
 }
 

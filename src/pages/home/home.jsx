@@ -69,7 +69,7 @@ const handleRedirect = (id) => {
 }
     return (
         <>
-            <div className='background'></div>
+            {/* <div className='background'></div> */}
             <div className='home-container'>
 
                 <div className='interior-home-container'>
@@ -85,6 +85,7 @@ const handleRedirect = (id) => {
                     <div className='right'></div>
                 </div>
             </div>
+            
         </>
     )
 }

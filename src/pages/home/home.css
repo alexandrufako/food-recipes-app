@@ -2,7 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    background: url('../../img/6702459.jpg') repeat;
     /*min-height: 100vh;*/
 }
 
@@ -10,6 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1rem;
 }
 
 .interior-home-container {
@@ -28,21 +31,12 @@
     margin-top: 2rem;
     border: 1px solid bisque;
     max-width: 1200px;
-    width: 88vw;
+    width: 80%;
     border-radius: 10px;
 }
 
-.background {
-    display: flex;
-    /*position: absolute;*/
-    z-index: -1;
-    width: 98.5vw;
-    height: 3000px;
-    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
-    background: url('../../img/6702459.jpg') repeat;
-    text-align: center;
-    filter: blur(20px);
-}
+
+
 
 .recipes-container {
     margin-bottom: 1rem;
@@ -51,7 +45,7 @@
     margin-top: 2rem;
     border: 1px solid bisque;
     max-width: 1200px;
-    width: 88vw;
+    width: 100%;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     height: 100%; /*provizoriu*/
