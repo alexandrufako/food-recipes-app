@@ -10,6 +10,7 @@ const UserAccountPage = () => {
         try {
             await logOut()
             navigate('/login')
+            localStorage.removeItem('accessToken')
             console.log('you are logged out')
         } catch (e) {
             console.log(e.message)

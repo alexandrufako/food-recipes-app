@@ -16,7 +16,7 @@ function SearchAccordion({ onFetchDataComplete }) {
     );
 
     const [searchQuery, setSearchQuery] = useState({
-        search: '',
+        search: null,
         cuisine: null,
         diet: null,
         addRecipeNutrition: 'yes',
@@ -74,7 +74,9 @@ function SearchAccordion({ onFetchDataComplete }) {
             // console.log(res.results)
 
         };
-        getData();
+        if(searchQuery.search){
+            getData()
+        };
     }, [searchQuery]);
 
 

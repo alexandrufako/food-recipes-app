@@ -30,7 +30,7 @@ const LoginPage = (props) => {
             setError('')
             await createUser(email, password)
             setLoading(true)
-            navigate('/home')
+            navigate('/')
             console.log(currentUser)
         } catch (e) {
             setError(e.message)
@@ -45,7 +45,8 @@ const LoginPage = (props) => {
             setError('')
             const user = await signIn(email, password)
             console.log(user)
-            navigate('/home')
+            localStorage.setItem('accessToken', user.user.accessToken)
+            navigate('/')
         } catch (e) {
             setError(e.message)
             console.log(e.message)

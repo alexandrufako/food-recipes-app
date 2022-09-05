@@ -9,7 +9,7 @@ export const Context = () => {
     return useContext(Ctx);
 }
 export const Provider = ({children}) => {
-    const [currentUser, setCurrentUser] = useState({})
+    const [currentUser, setCurrentUser] = useState(null)
 
     const createUser = (email, password) => {                           //sign up
         return createUserWithEmailAndPassword(auth, email, password)

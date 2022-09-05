@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+
+#logo-header {
+    height: 60px;
+    margin: 0 auto;
+}
+
+.me-auto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 3rem;
+    font-size: 1.5rem;
+}
+
+.header-link {
+    font-family: 'Dosis', sans-serif;
+}
