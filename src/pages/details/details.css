@@ -67,12 +67,6 @@
     gap: 1rem;
 }
 
-.text {
-    /* display: inline-block; */
-}
-.list {
-    /* display: inline-block; */
-}
 
 .related-recipes-container {
     display: flex;
