@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
 
 #logo-header {
-    height: 60px;
+    height: 80px;
     margin: 0 auto;
 }
 
@@ -16,4 +16,9 @@
 
 .header-link {
     font-family: 'Dosis', sans-serif;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
 }

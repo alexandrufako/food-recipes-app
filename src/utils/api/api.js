@@ -44,6 +44,8 @@ const computeShoppingListUrl = `https://api.spoonacular.com/mealplanner/shopping
 
 const getRandomRecipesUrl = `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
 
+const relatedRecipesUrl = `https://api.spoonacular.com/recipes/{id}/similar?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
+
 const buildQueryParamsFromObj = (params) => {
     const temp = []
     Object.keys(params).forEach(key => {
@@ -94,6 +96,11 @@ const getIngredientSubstitute = async(ingredientName) => {
     return await response.json();
 }
 
+const getRelatedRecipes = async(id, number) => {
+    const response = await fetch(`https://api.spoonacular.com/recipes/${id}/similar?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&number=${number}`);
+    return await response.json();
+}
 
 
-export {getRecipeInstructions, getRecipeInformation, getIngredientSubstitute, getSearchedRecipes, getRandomRecipes}
+
+export {getRecipeInstructions, getRecipeInformation, getIngredientSubstitute, getSearchedRecipes, getRandomRecipes, getRelatedRecipes}
