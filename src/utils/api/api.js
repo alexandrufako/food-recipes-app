@@ -56,7 +56,7 @@ const buildQueryParamsFromObj = (params) => {
     return temp.join('&');
 }
 
-const getSearchedRecipes = async (query, cuisineType, dietType, recipeNutrition, excludeIng, includeIng, nr) => {
+const getSearchedRecipes = async (query, cuisineType, dietType, recipeNutrition, excludeIng, includeIng, nr, offset) => {
    
     const queryParams = buildQueryParamsFromObj({
         query, 
@@ -65,6 +65,7 @@ const getSearchedRecipes = async (query, cuisineType, dietType, recipeNutrition,
         addRecipeNutrition: recipeNutrition,
         excludeIngredients: excludeIng,
         includeIngredients: includeIng,
+        offset: offset,
         number: 12});
     console.log(queryParams)
     const response = await fetch(`${recipeSearchUrl}&${queryParams}`);

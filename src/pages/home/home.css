@@ -68,3 +68,9 @@
     gap: 1.5rem;
     padding-top: 1rem;
 }
+
+.pagination {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
