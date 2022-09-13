@@ -66,3 +66,8 @@ i {
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
 }
 
+@media screen and (max-width: 1000px) {
+    .accordion-item {
+        margin-top: 1rem;
+    }   
+}

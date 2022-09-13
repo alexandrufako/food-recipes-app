@@ -20,31 +20,32 @@ const HomePage = () => {
 
     const navigate = useNavigate();
 
+    const randomCuisineType = () => {
+        const arrayCuisineTypes = ['African',
+            'American',
+            'vegetarian',
+            'vegan',
+            'snack',
+            'drink',
+            'British',
+            'Chinese',
+            'European',
+            'French',
+            'Greek',
+            'Italian',
+            'Japanese',
+            'Mediterranean',
+            'Mexican',
+            'Southern',
+            'Spanish',
+            'Vietnamese']
+
+        return arrayCuisineTypes[Math.floor(arrayCuisineTypes.length * Math.random())].toLowerCase()
+    }
+
     useEffect(() => {  //--> atribuie array de retete la montarea initiala a componentei | face call random din lista de tipuri de bucatarii
         const getRandomRecipesOnMount = async () => {
-            const randomCuisineType = () => {
-                const arrayCuisineTypes = ['African',
-                    'American',
-                    'vegetarian',
-                    'vegan',
-                    'snack',
-                    'drink',
-                    'British',
-                    'Chinese',
-                    'European',
-                    'French',
-                    'Greek',
-                    'Indian',
-                    'Italian',
-                    'Japanese',
-                    'Mediterranean',
-                    'Mexican',
-                    'Southern',
-                    'Spanish',
-                    'Vietnamese']
-
-                return arrayCuisineTypes[Math.floor(arrayCuisineTypes.length * Math.random())].toLowerCase()
-            }
+            
 
             //! trebuie intors elementul din array pe pagina ca si 'SHOWING RANDOM 'tralala' RECIPES'
 
@@ -88,6 +89,7 @@ const HomePage = () => {
                             <ControlledCarousel />
                         </div>
                         <SearchAccordion offset={pageNr} onFetchDataComplete={(params) => handleOnSearchComplete(params)} />
+                        <div className='showing'>Showing random {randomCuisineType()} cuisine recipes</div>
                         <div className='recipes-container'>
                             {recipesToShow && recipesToShow.map((recipe) => <Card key={recipe.id} data={recipe} cardBtnOnClick={handleRedirect} />)}
 

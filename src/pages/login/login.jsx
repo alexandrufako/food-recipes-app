@@ -1,10 +1,10 @@
 import React, {useState, useRef, useEffect} from "react"
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
 import {Context} from "../../context/context";
 import {Alert} from "react-bootstrap";
-import {auth} from '../../utils/api/firebase'
-import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
-import './login.css'
+import {auth} from '../../utils/api/firebase';
+import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+import './login.css';
 
 
 const LoginPage = (props) => {
@@ -28,8 +28,9 @@ const LoginPage = (props) => {
 
         try {
             setError('')
-            await createUser(email, password)
-            setLoading(true)
+            const user = await createUser(email, password)
+            setLoading(true);
+            localStorage.setItem('accessToken', user.user.accessToken)
             navigate('/')
             console.log(currentUser)
         } catch (e) {
@@ -83,7 +84,7 @@ const LoginPage = (props) => {
         return (
             <div className="Auth-form-container d-flex flex-column">
                 <div className='logo'><img src={require('../../img/cantina-logo .png')} height='200px'
-                                           style={{padding: "30px", marginTop: '-170px', marginBottom: '150px'}}/></div>
+                                           style={{padding: "30px", marginTop: '-110px', marginBottom: '120px'}}/></div>
                 <div className='background'></div>
                 <div className='d-flex flex-row' style={{
                     padding: '25px',
@@ -127,10 +128,10 @@ const LoginPage = (props) => {
                                 <button disabled={loading} type="submit" className="btn btn-primary">
                                     Submit
                                 </button>
-                                <button onClick={signInWithGoogle} className="btn"
+                                {/* <button onClick={signInWithGoogle} className="btn"
                                         style={{border: '1px solid black'}}>Continue
                                     with <img src={require('../../img/google-logo.png')} height='22px' alt='g'/>
-                                </button>
+                                </button> */}
                             </div>
                             <p className="text-center mt-4" style={{fontSize: 16}}>
                                 Forgot <a href="#">password?</a>
@@ -147,7 +148,7 @@ const LoginPage = (props) => {
 
         <div className="Auth-form-container d-flex flex-column">
             <div className='logo'><img src={require('../../img/cantina-logo .png')} height='200px'
-                                       style={{padding: "30px", marginTop: '-170px', marginBottom: '150px'}}/></div>
+                                       style={{padding: "30px", marginTop: '-110px', marginBottom: '120px'}}/></div>
             <div className='background'></div>
             <div className='d-flex flex-row' style={{
                 padding: '25px',
@@ -201,10 +202,10 @@ const LoginPage = (props) => {
                             <button disabled={loading} type="submit" className="btn btn-primary">
                                 Submit
                             </button>
-                            <button onClick={signInWithGoogle} className="btn"
+                            {/* <button onClick={signInWithGoogle} className="btn"
                                     style={{border: '1px solid black'}}>Continue
                                 with <img src={require('../../img/google-logo.png')} height='22px' alt='g'/>
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </form>
