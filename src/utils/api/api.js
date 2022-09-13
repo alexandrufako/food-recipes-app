@@ -67,10 +67,7 @@ const getSearchedRecipes = async (query, cuisineType, dietType, recipeNutrition,
         includeIngredients: includeIng,
         offset: offset,
         number: 12});
-    console.log(queryParams)
     const response = await fetch(`${recipeSearchUrl}&${queryParams}`);
-    console.log(response)
-    
     return await response.json();
 };
 
@@ -82,7 +79,6 @@ const getRecipeInformation = async (id) => {
 
 const getRandomRecipes = async (tags, number = 15) => {
     const response = await fetch(`${getRandomRecipesUrl}&number=${number}&tags=${tags}`);
-    console.log(response)
     return await response.json();
     
 }

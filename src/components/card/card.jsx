@@ -6,7 +6,6 @@ const Card = (props) => {
       <div className='card-container'>
         <div className='card-image'>
           <img src={recipe.image} alt='recipe' />
-          {console.log(recipe.title)}
         </div>
         <div className='card-title'>
           <p>{recipe.title}</p>

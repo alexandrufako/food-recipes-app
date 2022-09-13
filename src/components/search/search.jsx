@@ -7,7 +7,7 @@ import { getSearchedRecipes } from './../../utils/api/api'
 import { useState, useEffect } from "react";
 
 
-function SearchAccordion({ onFetchDataComplete, offset }) {
+function SearchAccordion({ onFetchDataComplete, offset, isLoading }) {
 
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
@@ -61,13 +61,13 @@ function SearchAccordion({ onFetchDataComplete, offset }) {
         tempSearch.diet = diet
         tempSearch.excludeIngredients = exclude
         tempSearch.includeIngredients = include
-
+        
         setSearchQuery(tempSearch)
     }
 
     useEffect(() => {
         const getData = async () => {
-
+            isLoading();
             const res = await getSearchedRecipes(searchQuery.search, searchQuery.cuisine, searchQuery.diet, searchQuery.addRecipeNutrition, searchQuery.excludeIngredients, searchQuery.includeIngredients, 10, offset);
             onFetchDataComplete(res)
             //setComplexSearchDataArray(res);
@@ -78,7 +78,6 @@ function SearchAccordion({ onFetchDataComplete, offset }) {
             getData()
         };
     }, [searchQuery, offset]);
-
 
 
     return (

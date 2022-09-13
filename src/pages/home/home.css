@@ -5,6 +5,7 @@
     width: 100%;
     box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
     background: url('../../img/6702459.jpg') repeat;
+    /* background-color: #d7bf85; */
     /*min-height: 100vh;*/
 }
 
@@ -22,9 +23,9 @@
     width: 90vw;
     max-width: 1440px;
     /*min-height: 100vh;*/
-    background-color: rgba(255, 255, 255, 0.38);
-    border-radius: 5px;
-    border: 1px solid #d7bf85;
+    background-color: #d8d8d887;
+    /* border-radius: 5px; */
+    /* border: 1px solid #d7bf85; */
 }
 
 .home-carousel {
@@ -57,11 +58,11 @@
     display: flex;
     flex-wrap:wrap;
     margin-top: 0.4rem;
-    border: 1px solid bisque;
+    /* border: 1px solid bisque; */
     max-width: 1200px;
     width: 100%;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.415);
+    /* background-color: rgba(255, 255, 255, 0.415); */
     height: 100%; /*provizoriu*/
     /*flex-basis: auto;*/
     justify-content: space-evenly;
