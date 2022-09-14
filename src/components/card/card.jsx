@@ -1,5 +1,4 @@
 import './card.css'
-import HomePage from '../../pages/home/home'
 
 const Card = (props) => {
   const recipe = props.data
@@ -20,5 +19,3 @@ const Card = (props) => {
 }
 
 export default Card;
-
-//! trebuie facuta o functie de onclick pe card container/see more care sa ia recipe.id si sa faca GET *recipeInstructionsUrl()* si *recipeInformationUrl()* in pagina de DETAILS

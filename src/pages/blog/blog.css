@@ -3,4 +3,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    min-height: 95vh;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    background: url('../../img/6702459.jpg') no-repeat;
+    background-size: cover;
+    /* background-color: #d7bf85; */
+    /*min-height: 100vh;*/
+}
+
+.no-text {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 23rem;
+}
+
+.no-image {
+    text-align: center;
+    margin: 0 auto;
 }
