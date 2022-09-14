@@ -2,7 +2,6 @@ import {createContext, useContext, useEffect, useState} from "react";
 import {auth} from '../utils/api/firebase'
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged} from 'firebase/auth'
 
-
 export const Ctx = createContext();
 
 export const Context = () => {
@@ -10,6 +9,7 @@ export const Context = () => {
 }
 export const Provider = ({children}) => {
     const [currentUser, setCurrentUser] = useState(null)
+    const [favourites, setFavourites] = useState([])
 
     const createUser = (email, password) => {                           //sign up
         return createUserWithEmailAndPassword(auth, email, password)
@@ -32,12 +32,14 @@ export const Provider = ({children}) => {
         return () => unsubscribe()
     }, [])
 
-
+    console.log(favourites)
     return <Ctx.Provider value={{
         currentUser,
         createUser,
         signIn,
-        logOut
+        logOut,
+        favourites,
+        setFavourites
     }}>
         {children}
     </Ctx.Provider>;

@@ -13,6 +13,14 @@
     box-shadow: 0px 0px 12px 9px #d7bf85;
 }
 
+.btns {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
 .card-title {
     display: table;
     text-align: center;
@@ -39,6 +47,27 @@
     padding: 0.5rem 3rem;
     background-color: rgb(255, 255, 255);
     border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+#card-details-btn:hover {
+    border: none;
+    padding: 0.5rem 4rem;
+    background-color: rgb(255, 119, 0);
+}
+
+.add-favourites {
+    border: none;
+    padding: 0.5rem 1.25rem;
+    background-color: rgb(255, 225, 225);
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+}
+
+.add-favourites:hover {
+    background-color: rgb(255, 34, 34);
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 2.25rem;
 }
 
 @media screen and (max-width: 1300px) {

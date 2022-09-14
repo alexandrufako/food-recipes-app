@@ -13,7 +13,7 @@ import './home.css'
 
 const HomePage = ({ isVisible }) => {
 
-    const { currentUser } = Context();
+    const { currentUser, favourites, setFavourites } = Context();
     const [recipesToShow, setRecipesToShow] = useState(null)
     const [pageNr, setPageNr] = useState(0);
     const [totalResults, setTotalResults] = useState(null);
@@ -71,7 +71,6 @@ const HomePage = ({ isVisible }) => {
         setLoading(false)
     }, [])
 
-    //! DE CE FACE 2 CALLURI ?!
 
     const handleOnSearchComplete = (data) => {
         setRecipesToShow(data.results)
@@ -81,6 +80,12 @@ const HomePage = ({ isVisible }) => {
 
     const handleRedirect = (id) => {
         navigate(`/details/${id}`)
+    }
+
+    const handleFavourites = (title, id, image) => {
+        let tempArray = [...favourites]
+        tempArray.push({title, id, image})
+        setFavourites(tempArray)
     }
 
     const handlePageIncrease = () => {
@@ -109,7 +114,9 @@ const HomePage = ({ isVisible }) => {
                         <SearchAccordion isLoading={handleLoading} offset={pageNr} onFetchDataComplete={(params) => handleOnSearchComplete(params)} />
                         <div className='showing'>Showing random {randomTerm.current} cuisine recipes</div>
                         {loading || !recipesToShow ? <Spinner /> : <div className='recipes-container'>
-                            {recipesToShow && recipesToShow.map((recipe) => <Card key={recipe.id} data={recipe} cardBtnOnClick={handleRedirect} />)}
+                            {recipesToShow && recipesToShow.map((recipe) => <Card key={recipe.id} data={recipe} cardBtnOnClick={handleRedirect} 
+                            cardBtnAddFavourites={handleFavourites}
+                            />)}
                         </div>}
                         {totalResults && <div className="pagination">
                             <button className="pag-btn btn btn-primary m-0" onClick={handlePageDecrease} disabled={pageNr === 0}><i className="bi bi-arrow-left-square-fill me-1"></i> Button</button>
