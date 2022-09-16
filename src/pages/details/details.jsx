@@ -63,7 +63,6 @@ const Details = () => {
                 <div className="related-recipes-container">
                     <div className="related-recipes-text">
                         <h3>related recipes</h3>
-                        <p>text</p>
                     </div>
                     {relatedRecipe && relatedRecipe.map((recipe) =>
                         <div key={recipe.id} className="related-recipes-card">

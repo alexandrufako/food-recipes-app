@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {useState, useRef, useEffect} from "react"
 import {useNavigate} from 'react-router-dom';
 import {Context} from "../../context/context";
@@ -20,7 +21,6 @@ const LoginPage = (props) => {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const fullNameRef = useRef()
-    // eslint-disable-next-line no-unused-vars
     const {createUser, currentUser, signIn} = Context()
 
     const handleSignUp = async (e) => {
@@ -29,15 +29,12 @@ const LoginPage = (props) => {
         try {
             setError('')
             const user = await createUser(email, password)
-            setLoading(true);
             localStorage.setItem('accessToken', user.user.accessToken)
             navigate('/')
-            console.log(currentUser)
         } catch (e) {
             setError(e.message)
             console.log(e.message)
         }
-        setLoading(false)
     }
 
     const handleSignIn = async (e) => {
@@ -45,7 +42,6 @@ const LoginPage = (props) => {
         try {
             setError('')
             const user = await signIn(email, password)
-            console.log(user)
             localStorage.setItem('accessToken', user.user.accessToken)
             navigate('/')
         } catch (e) {
@@ -54,9 +50,9 @@ const LoginPage = (props) => {
         }
     }
 
+
     const provider = new GoogleAuthProvider()
 
-//asta trebuie mutata in sign-in
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
@@ -84,7 +80,7 @@ const LoginPage = (props) => {
         return (
             <div className="Auth-form-container d-flex flex-column">
                 <div className='logo'><img src={require('../../img/cantina-logo .png')} height='200px'
-                                           style={{padding: "30px", marginTop: '-110px', marginBottom: '120px'}}/></div>
+                                           style={{padding: "30px", marginTop: '-110px', marginBottom: '120px'}} alt='gif'/></div>
                 <div className='background'></div>
                 <div className='d-flex flex-row' style={{
                     padding: '25px',
@@ -96,7 +92,7 @@ const LoginPage = (props) => {
                     <form className="Auth-form" onSubmit={handleSignIn}>
                         <div className="Auth-form-content">
                             <div className='text-center'><img src={require('../../img/dff7c253319193.592ffe6375e53.gif')}
-                                                              height='250px'/></div>
+                                                              height='250px' alt='gif'/></div>
                             <h3 className="Auth-form-title">Sign In</h3>
                             <div className="text-center">
                                 {currentUser && currentUser.email}
@@ -148,7 +144,7 @@ const LoginPage = (props) => {
 
         <div className="Auth-form-container d-flex flex-column">
             <div className='logo'><img src={require('../../img/cantina-logo .png')} height='200px'
-                                       style={{padding: "30px", marginTop: '-110px', marginBottom: '120px'}}/></div>
+                                       style={{padding: "30px", marginTop: '-110px', marginBottom: '120px'}} alt='gif'/></div>
             <div className='background'></div>
             <div className='d-flex flex-row' style={{
                 padding: '25px',
@@ -159,7 +155,7 @@ const LoginPage = (props) => {
                 <div className='left-column'></div>
                 <form className="Auth-form" onSubmit={handleSignUp}>
                     <div className="Auth-form-content">
-                        <div className='text-center'><img src={require('../../img/dff7c253319193.592ffe6375e53.gif')}/>
+                        <div className='text-center'><img src={require('../../img/dff7c253319193.592ffe6375e53.gif')} alt='gif'/>
                         </div>
                         <h3 className="Auth-form-title">Sign Up</h3>
                         <div className="text-center">
