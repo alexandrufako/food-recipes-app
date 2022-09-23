@@ -48,6 +48,12 @@
     padding: 1rem;
 }
 
+.short-details p {
+    top: 0;
+    padding: 0;
+    margin: 0;
+}
+
 .ingredients-container {
     display: flex;
     flex-direction: row;
@@ -86,6 +92,7 @@
     justify-content: center;
     align-items: center;
     width: 12rem;
+    min-height: 13rem;
     border-radius: 1rem;
     min-height: 7rem;
     background-color: rgba(250, 235, 215, 0.362);

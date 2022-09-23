@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getRecipeInformation, getRelatedRecipes } from "./../../utils/api/api";
@@ -39,7 +41,11 @@ const Details = () => {
                         <div> Liked by {recipeInformation.aggregateLikes} people</div>
                         <div className="review-container">quote</div>
                     </div>
-                    <div className="short-details"> some details on the right</div>
+                    <div className="short-details" >
+                        <p>ready in: {recipeInformation.readyInMinutes} min</p>
+                        <p>servings: {recipeInformation.servings}</p>
+                        <p>dish tipes: {recipeInformation.dishTypes.map(element => `${element}, `)}</p>
+                    </div>
                 </div>
                 <div className="ingredients-container">
                     <div className="text">Ingredients</div>
@@ -62,11 +68,11 @@ const Details = () => {
                 </div>
                 <div className="related-recipes-container">
                     <div className="related-recipes-text">
-                        <h3>related recipes</h3>
+                        <h3><p>related</p><p>recipes</p></h3>
                     </div>
                     {relatedRecipe && relatedRecipe.map((recipe) =>
                         <div key={recipe.id} className="related-recipes-card">
-                            <div className="related-image"><img src={recipe.sourceURL} alt={recipe.id} /></div>
+                            <div className="related-image"><button className="related-btn"><a href={`${recipe.sourceUrl}`} target='blank'> Go to recipe </a></button></div>
                             <div className="related-title">{recipe.title}</div>
                         </div>)}
                     
